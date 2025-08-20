@@ -1,0 +1,14 @@
+maxlen=0 
+right left = 0 
+HashMap<Character , Integer > map= new HashMap<>()
+while(right<s.length()){
+map.put(s[right],map.getOrDefault(s[right],0) + 1)
+while(map.size()>k)
+map.put(s[left],map.set(s[left]-1);
+l++;
+
+if(map.size()<=k)
+maxlen=Math.max(maxlen,right-left+1)
+r++;
+
+return 
