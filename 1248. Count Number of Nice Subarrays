@@ -1,0 +1,21 @@
+public int numberOfSubarrays(int[] nums, int k) {
+        return atMost(nums, k) - atMost(nums, k - 1);
+}
+private int atMost(int[] nums, int k) {
+        int l = 0, r = 0;
+        int count = 0;
+        int oddCount = 0;
+        while(r<nums.length){
+              if(nums[r]%2!=0){ 
+                    oddCount++;
+              }
+              while(c>k){
+                    if(nums[l]%2!=0){
+                          OddCount--;
+                    }
+                    l++;
+              c=c+(r-l+1);
+              r++;
+        }
+}
+        
