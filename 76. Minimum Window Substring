@@ -1,0 +1,42 @@
+class Solution {
+    public String minWindow(String s, String t) {
+        int minlen = Integer.MAX_VALUE;
+        int c = 0;
+        int start = 0;
+
+        HashMap<Character, Integer> hash = new HashMap<>();
+        for (int i = 0; i < t.length(); i++) {
+            char ch = t.charAt(i);
+            hash.put(ch, hash.getOrDefault(ch, 0) + 1);
+        }
+
+        int l = 0;
+        int r = 0;
+        int m = t.length();
+
+        while (r < s.length()) {
+            char cr = s.charAt(r);
+            if (hash.containsKey(cr)) {
+                if (hash.get(cr) > 0) c++;
+                hash.put(cr, hash.get(cr) - 1);
+            }
+
+            while (c == m) {
+                if ((r - l + 1) < minlen) {
+                    minlen = r - l + 1;
+                    start = l;
+                }
+
+                char cl = s.charAt(l);
+                if (hash.containsKey(cl)) {
+                    hash.put(cl, hash.get(cl) + 1);
+                    if (hash.get(cl) > 0) c--;
+                }
+                l++;
+            }
+            r++;
+        }
+
+        return minlen == Integer.MAX_VALUE ? "" : s.substring(start, start + minlen);
+    }
+}
