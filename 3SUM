@@ -1,0 +1,23 @@
+public class Main {
+    public static void main(String[] args) {
+        int n=arr.length;
+        Set<List<Integer>> set=new Hashset<>();
+        List<List<Integer>> list=new ArrayList<>();
+        for(int i=0;i<n;i++){
+            int left=i+1;
+            int right=n-1;
+            int sum=arr[i]+arr[left]+arr[right];
+            if(sum==0){
+                set.add(Arrays.asList(nums[i],nums[left],nums[right]));
+                low++;
+                right--;
+            }
+            else if(sum<0) low++;
+            else right--;
+        }
+
+        list.addAll(set);
+
+        
+    }
+}
