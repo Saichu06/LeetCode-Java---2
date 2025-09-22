@@ -4,7 +4,7 @@ class Solution {
             return false;
         }
         while(n%2==0){
-            n=n/2;
+            n=n/2; /// like this it changes for power of 3 and 4
         }
 
         return n==1;
