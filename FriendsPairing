@@ -1,0 +1,17 @@
+public class FriendsPairing {
+    public static int func(int n){
+        if(n==1 || n==2){
+            return n;
+        }
+
+        int fnm1=func(n-1);
+        int fnm2=func(n-2);
+        int fn2=(n-1)*fnm2;
+        int fin=fnm1+fn2;
+
+        return fin;
+    }
+    public static void main(String[] args) {
+        System.out.println(func(5));
+    }
+}
