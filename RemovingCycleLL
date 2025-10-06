@@ -1,0 +1,31 @@
+public class RemovingCycleLL {
+    public static void main(String[] args) {
+        // Detect cycle
+        Node slow=head;
+        Node fast=head;
+        boolean exists=false;
+        while(fast!=null && fast.next!=null){
+            slow=slow.next;
+            fast=fast.next.next;
+            if(slow==fast){
+                exists=true;
+            }
+        }
+
+        if(exists==false){
+            return;
+        }
+
+        //To find meeting point
+        slow=head;
+        Node prev=null;
+        while(slow!=fast){
+            prev=fast;
+            slow=slow.next;
+            fast=fast.next;
+        }
+
+        //to initalize final.next to null
+        prev.next=null;
+    }
+}
