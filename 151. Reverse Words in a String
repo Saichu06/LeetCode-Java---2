@@ -1,0 +1,32 @@
+class Solution {
+    public String reverseWords(String s) {
+        Stack<String> st = new Stack<>();
+        StringBuilder word = new StringBuilder("");
+
+        for (int i = 0; i < s.length(); i++) {
+            char c = s.charAt(i);
+
+            if (c != ' ') {
+                word.append(c);            // collect characters of the word
+            } else {
+                while (word.length()>0) { // reverse word when space is found
+                    st.push(word.toString());
+                    word.setLength(0);
+                }      
+            }
+        }
+
+        if(word.length()>0){
+            st.push(word.toString());
+        }
+
+        // reverse the last word (no trailing space at the end)
+        StringBuilder ans=new StringBuilder("");
+        while(!st.isEmpty()){
+            ans.append(st.pop());
+            if(!st.isEmpty()) ans.append(" ");
+        }
+
+        return ans.toString();
+    }
+}
